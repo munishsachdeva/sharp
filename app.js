@@ -28,13 +28,29 @@
 // tag.style.backgroundColor = 'yellow';
 // above line will show error
 
-let item2 = document.querySelector('.list-group-item:nth-child(2)');
+// let item2 = document.querySelector('.list-group-item:nth-child(2)');
 
-item2.style.backgroundColor = 'green';
+// item2.style.backgroundColor = 'green';
 
-let item3 = document.querySelector('.list-group-item:nth-child(3)');
+// let item3 = document.querySelector('.list-group-item:nth-child(3)');
 
-item3.style.display = 'None';
+// item3.style.display = 'None';
+
+// Get all the <li> elements within the #item-list
+const items = document.querySelectorAll("li");
+
+// Check if there is a second item
+if (items.length >= 2) {
+  // Apply the style to the second item
+  items[1].style.color = 'red';
+}
+
+
+let odd = document.querySelectorAll('li:nth-child(odd)')
+for (var k of odd) {
+    k.style.backgroundColor = 'green';
+}
+
 
 
 
