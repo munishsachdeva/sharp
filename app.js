@@ -21,3 +21,9 @@ for(let i=0; i<items.length; i++){
     items[i].style.fontWeight = 'bold';
 }
 
+let tag = document.getElementsByTagName('li');
+for(let j=0; j<tag.length; j++){
+    tag[j].style.backgroundColor = 'yellow';
+} 
+// tag.style.backgroundColor = 'yellow';
+
