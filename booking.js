@@ -20,6 +20,25 @@ function deleteUser(key, li) {
 }
 
 
+// Function to edit a user
+function editUser(key, li) {
+    // Retrieve the user object from the local storage using the key
+    const user = JSON.parse(localStorage.getItem(key));
+
+    // Prompt the user to enter the corrected email
+    const correctedEmail = prompt('Enter the corrected email:');
+
+    // Update the user object with the corrected email
+    user.email = correctedEmail;
+
+    // Store the updated user object back in the local storage using the key
+    localStorage.setItem(key, JSON.stringify(user));
+
+    // Update the email in the UI
+    const userText = li.firstChild;
+    userText.textContent = `${user.name}: ${user.email}`;
+}
+
 function onSubmit(e) {
     e.preventDefault();
 
@@ -42,7 +61,15 @@ function onSubmit(e) {
         // Create new list item with user
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${user.name}: ${user.email}`));
-        
+
+        // Create an edit button
+        const editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.addEventListener('click', () => editUser(key, li));
+
+        // Append the edit button to the list item
+        li.appendChild(editButton);
+
         // Create a delete button
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
